@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "ARTIVA",
+    "slug": "artiva",
+    "scheme": "artiva",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.artiva.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "ARTIVA necesita acceso a tus fotos para que puedas elegir un avatar.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      "expo-video",
+      [
+        "expo-audio",
+        {
+          "recordAudioAndroid": false
+        }
+      ],
+      "./plugins/withDevBackendCleartext.js",
+      "expo-font"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "03ca47ea-634b-45ce-9710-98f4959b6f8a"
+      }
+    },
+    "owner": "dseeert"
+  }
+}

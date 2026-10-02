@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Domain\Social\Models;
+
+use App\Domain\Auth\Models\User;
+use App\Domain\Posts\Models\Post;
+use Database\Factories\SavedPostFactory;
+use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+#[Fillable(['user_id', 'post_id'])]
+class SavedPost extends Model
+{
+    /** @use HasFactory<SavedPostFactory> */
+    use HasFactory;
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function post(): BelongsTo
+    {
+        return $this->belongsTo(Post::class);
+    }
+}
